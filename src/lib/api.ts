@@ -46,14 +46,19 @@ async function request<T>(path: string, options?: RequestInit): Promise<ApiRespo
   return json;
 }
 
+function toPayload(data: PetFormData) {
+  const { street, number, city, ...rest } = data;
+  return { ...rest, address: { street, number, city } };
+}
+
 export const petApi = {
   findAll: () => request<Pet[]>("/pets"),
 
   save: (data: PetFormData) =>
-    request<null>("/pets", { method: "POST", body: JSON.stringify(data) }),
+    request<null>("/pets", { method: "POST", body: JSON.stringify(toPayload(data)) }),
 
   update: (id: string, data: PetFormData) =>
-    request<Pet>(`/pets/${id}`, { method: "PUT", body: JSON.stringify(data) }),
+    request<Pet>(`/pets/${id}`, { method: "PUT", body: JSON.stringify(toPayload(data)) }),
 
   delete: (id: string) =>
     request<null>(`/pets/${id}`, { method: "DELETE" }),
