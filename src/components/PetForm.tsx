@@ -75,18 +75,20 @@ export function PetForm({ initialData, onSubmit, isPending, submitLabel = "Salva
           </div>
         )}
 
-        <div className="space-y-2">
-          <Label htmlFor="gender">Sexo</Label>
-          <Select value={form.gender} onValueChange={(v) => handleChange("gender", v)}>
-            <SelectTrigger>
-              <SelectValue placeholder="Selecione o sexo" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="M">Macho</SelectItem>
-              <SelectItem value="F">Fêmea</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        {!isEdit && (
+          <div className="space-y-2">
+            <Label htmlFor="gender">Sexo</Label>
+            <Select value={form.gender} onValueChange={(v) => handleChange("gender", v)}>
+              <SelectTrigger>
+                <SelectValue placeholder="Selecione o sexo" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="M">Macho</SelectItem>
+                <SelectItem value="F">Fêmea</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        )}
 
         <div className="space-y-2">
           <Label htmlFor="race">Raça</Label>
