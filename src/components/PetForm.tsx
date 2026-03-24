@@ -20,7 +20,7 @@ interface PetFormProps {
   isEdit?: boolean;
 }
 
-export function PetForm({ initialData, onSubmit, isPending, submitLabel = "Salvar" }: PetFormProps) {
+export function PetForm({ initialData, onSubmit, isPending, submitLabel = "Salvar", isEdit = false }: PetFormProps) {
   const [form, setForm] = useState<PetFormData>({
     name: initialData?.name || "",
     type: initialData?.type || "",
