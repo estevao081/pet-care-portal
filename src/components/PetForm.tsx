@@ -17,6 +17,7 @@ interface PetFormProps {
   onSubmit: (data: PetFormData) => void;
   isPending?: boolean;
   submitLabel?: string;
+  isEdit?: boolean;
 }
 
 export function PetForm({ initialData, onSubmit, isPending, submitLabel = "Salvar" }: PetFormProps) {
