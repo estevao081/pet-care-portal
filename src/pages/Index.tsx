@@ -58,7 +58,7 @@ export default function Index() {
               <PawPrint className="h-5 w-5" />
             </div>
             <h1 className="font-display text-xl font-bold tracking-tight">
-              PetAdota
+              AdotaPet
             </h1>
           </div>
           <Button onClick={handleNewPet}>
@@ -75,7 +75,7 @@ export default function Index() {
             Sistema de Adoção de Pets 🐾
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Cadastre, busque e gerencie os pets do abrigo para encontrar um lar para cada um.
+            Cadastre ou busque pets para encontrar um lar para cada um.
           </p>
         </div>
 
