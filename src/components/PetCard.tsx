@@ -52,8 +52,8 @@ export function PetCard({ pet, onEdit, onDelete }: PetCardProps) {
         <div className="flex items-center gap-1.5 col-span-2">
           <MapPin className="h-3.5 w-3.5 shrink-0" />
           <span className="truncate">
-            {pet.address?.city || pet.address?.state
-              ? `${pet.address.city}${pet.address.state ? ` - ${pet.address.state}` : ""}`
+            {pet.city || pet.state
+              ? `${pet.city}${pet.state ? ` - ${pet.state}` : ""}`
               : "não informado"}
           </span>
         </div>
