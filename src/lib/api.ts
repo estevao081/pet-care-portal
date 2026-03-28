@@ -1,16 +1,12 @@
 const API_BASE = import.meta.env.VITE_API_URL;
 
-export interface PetAddress {
-  city: string;
-  state: string;
-}
-
 export interface Pet {
   id: string;
   name: string;
   type: "CAO" | "GATO";
   gender: "M" | "F";
-  address: PetAddress;
+  city: string;
+  state: string;
   age: string;
   weight: string;
   race: string;
