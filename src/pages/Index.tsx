@@ -14,7 +14,6 @@ import { toast } from "sonner";
 export default function Index() {
   const [page, setPage] = useState(0);
   const [searchFilter, setSearchFilter] = useState<Partial<PetFormData> | null>(null);
-  const [searchPage, setSearchPage] = useState(0);
 
   const { data: petsPage, isLoading, refetch } = usePets(page);
   const searchMutation = useSearchPets();
@@ -31,11 +30,11 @@ export default function Index() {
   const deleteMutation = useDeletePet();
 
   const isSearching = !!searchFilter;
-  const searchData = searchMutation.data;
+  const searchData = searchMutation.data?.data;
   const activePage = isSearching ? searchData : petsPage;
   const pets = activePage?.content ?? [];
   const totalPages = activePage?.totalPages ?? 0;
-  const currentPage = isSearching ? (searchData?.number ?? 0) : page;
+  const currentPage = activePage?.number ?? 0;
 
   const handleEdit = (pet: Pet) => {
     setEditingPet(pet);
