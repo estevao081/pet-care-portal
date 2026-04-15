@@ -68,19 +68,16 @@ export default function Index() {
 
   const handleSearch = (filter: Partial<PetFormData>) => {
     setSearchFilter(filter);
-    setSearchPage(0);
     searchMutation.mutate({ filter, page: 0 });
   };
 
   const handleClearSearch = () => {
     setSearchFilter(null);
-    setSearchPage(0);
     refetch();
   };
 
   const handlePageChange = (newPage: number) => {
     if (isSearching && searchFilter) {
-      setSearchPage(newPage);
       searchMutation.mutate({ filter: searchFilter, page: newPage });
     } else {
       setPage(newPage);
