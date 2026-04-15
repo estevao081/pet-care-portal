@@ -69,29 +69,29 @@ export default function Index() {
             </h1>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {isAuthenticated ? (
               <>
                 <span className="text-sm text-muted-foreground hidden sm:inline">
                   Olá, <strong className="text-foreground">{user?.name}</strong>
                 </span>
-                <Button onClick={handleNewPet}>
-                  <Plus className="h-4 w-4 mr-1.5" /> Novo Pet
+                <Button size="sm" onClick={handleNewPet} className="sm:size-default">
+                  <Plus className="h-4 w-4 sm:mr-1.5" /> <span className="hidden sm:inline">Novo Pet</span>
                 </Button>
-                <Button variant="outline" size="icon" onClick={logout} title="Sair">
+                <Button variant="outline" size="icon" onClick={logout} title="Sair" className="h-9 w-9 sm:h-10 sm:w-10">
                   <LogOut className="h-4 w-4" />
                 </Button>
               </>
             ) : (
               <>
-                <Button variant="outline" asChild>
+                <Button variant="outline" size="sm" asChild>
                   <Link to="/login">
-                    <LogIn className="h-4 w-4 mr-1.5" /> Entrar
+                    <LogIn className="h-4 w-4 sm:mr-1.5" /> <span className="hidden sm:inline">Entrar</span>
                   </Link>
                 </Button>
-                <Button asChild>
+                <Button size="sm" asChild>
                   <Link to="/register">
-                    <UserPlus className="h-4 w-4 mr-1.5" /> Cadastrar
+                    <UserPlus className="h-4 w-4 sm:mr-1.5" /> <span className="hidden sm:inline">Cadastrar</span>
                   </Link>
                 </Button>
               </>
