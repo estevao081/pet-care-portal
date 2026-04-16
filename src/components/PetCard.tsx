@@ -1,5 +1,10 @@
 import { Pet } from "@/lib/api";
 import { Dog, Cat, MapPin, Scale, Calendar, Trash2, Pencil, User } from "lucide-react";
+
+function formatPhone(raw: string): string {
+  const digits = raw.replace(/\D/g, "").padEnd(11, "0");
+  return `(${digits.slice(0, 2)}) ${digits[2]}.${digits.slice(3, 7)}-${digits.slice(7, 11)}`;
+}
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
