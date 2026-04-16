@@ -1,5 +1,10 @@
 import { Pet } from "@/lib/api";
 import { Dog, Cat, MapPin, Scale, Calendar, Trash2, Pencil, User } from "lucide-react";
+
+function formatPhone(raw: string): string {
+  const digits = raw.replace(/\D/g, "").padEnd(11, "0");
+  return `(${digits.slice(0, 2)}) ${digits[2]}.${digits.slice(3, 7)}-${digits.slice(7, 11)}`;
+}
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -74,8 +79,11 @@ export function PetCard({ pet, onEdit, onDelete, currentUserName, isAdmin }: Pet
 
       {pet.owner && (
         <div className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground border-t pt-3">
-          <User className="h-3.5 w-3.5" />
-          <span>Cadastrado por <strong className="text-foreground">{pet.owner.name}</strong> · {pet.owner.number}</span>
+          <User className="h-3.5 w-3.5 shrink-0" />
+          <div className="flex flex-col">
+            <span>Cadastrado por <strong className="text-foreground">{pet.owner.name}</strong></span>
+            <span>{formatPhone(String(pet.owner.number))}</span>
+          </div>
         </div>
       )}
     </div>
